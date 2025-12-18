@@ -1,0 +1,293 @@
+@font-face {
+  font-family: "Steppe";
+  src: url("Steppe.woff2") format("woff2"),
+       url("Steppe.woff") format("woff");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Steppe", sans-serif;
+}
+
+body {
+  color: #2b1c16;
+  background: #f5eae3;
+  overflow-x: hidden;
+}
+
+.header {
+  background: #f5eae3;
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 75rem; /* 1200px */
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 45px;
+  color: #2b1c16;
+  cursor: pointer;
+}
+
+.nav {
+  display: flex;
+  gap: 80px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #2b1c16;
+  font-size: 28px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+.account-btn {
+  border: 2px solid #2b1c16;
+  border-radius: 15px;
+  padding: 10px 25px;
+  background: none;
+  cursor: pointer;
+  font-size: 32px;
+  font-weight: 600;
+  transition: 0.3s;
+  color: #2b1c16;
+}
+
+.account-btn:hover {
+  background: #2b1c16;
+  color: #fff;
+}
+
+.reviews-grid-section {
+  background: #f5eae3;
+  padding: 80px 20px 200px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reviews-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #2b1c16;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 180px 120px;
+  justify-content: center;
+  max-width: 77.5rem; /* 1240px */
+  width: 100%;
+}
+
+.review-card {
+  display: grid;
+  grid-template-columns: 269px 1fr;
+  width: 620px;
+  height: 342px;
+  background: #f5eae3;
+  padding: 0;
+  border-radius: 20px;
+  gap: 25px;
+  align-items: start;
+  position: relative;
+  overflow: visible;
+  transition: transform 0.3s ease;
+}
+
+.review-card:hover {
+  transform: scale(1.05);
+}
+
+.photo-wrap {
+  width: 269px;
+  height: 342px;
+  border-radius: 35px 0 0 35px;
+  overflow: hidden;
+}
+
+.photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.info {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 10px;
+  padding: 25px 20px;
+  position: relative;
+}
+
+.info h3 {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.stars {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.stars img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+.stars img.half {
+  opacity: 0.3;
+}
+
+.read-btn {
+  background: #2b1c16;
+  color: #f5eae3;
+  border: none;
+  padding: 18px 35px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: 600;
+  justify-self: end;
+  align-self: end;
+  margin-top: 35px;
+  transition: 0.3s;
+}
+
+.read-btn:hover {
+  background: #fff;
+  color: #2b1c16;
+  border: 1px solid #2b1c16;
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 380px;
+  height: 70px;
+  background: #a1795e;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 22px;
+  padding: 0 20px;
+  position: absolute;
+  left: -70px;
+  top: calc(342px - 35px);
+  z-index: 2;
+}
+
+.stats::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 50%;
+  width: 2px;
+  background: #fff;
+  transform: translateX(-50%);
+}
+
+.stats span {
+  flex: 1;
+  text-align: center;
+  z-index: 1;
+}
+
+.footer {
+  background: #2b1c16;
+  color: #fff;
+  padding: 40px 80px;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 75rem; /* 1200px */
+  margin: 0 auto;
+}
+
+.footer-logo {
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.footer-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 35px;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 50px;
+}
+
+.footer-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.footer-nav a:hover {
+  text-decoration: underline;
+}
+
+.footer-copy {
+  margin-top: 10px;
+  font-size: 14px;
+  opacity: 0.8;
+  text-align: center;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 42px;
+}
+
+.footer-socials .social {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: 0.3s ease;
+}
+
+.social.telegram {
+  background-image: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg');
+  filter: invert(1);
+}
+
+.social.instagram {
+  background-image: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg');
+  filter: invert(1);
+}
+
+.social:hover {
+  filter: invert(0.5);
+}

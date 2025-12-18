@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конструктор - Lassee</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/order.css">
+    <style>
+        .custom-popup {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(43, 28, 22, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+        }
+        .popup-content {
+            background: #f5eae3;
+            padding: 40px;
+            border-radius: 25px;
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+        }
+        .popup-close {
+            position: absolute;
+            top: 15px; right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        .popup-active { display: flex; }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="header-inner">
+        <a href="index.html"><div class="logo">Lassee</div></a>
+        <nav class="nav">
+            <a href="order.html">заказы</a>
+            <a href="#" class="js-unavailable">контакты</a>
+            <a href="#" class="js-unavailable">этапы</a>
+        </nav>
+        <button class="account-btn js-unavailable">Аккаунт</button>
+    </div>
+</header>
+
+<main>
+    <section class="layout-selection">
+        <div class="container layout-selection-content"> 
+            <div class="text-block">
+                <h1>Выбери макет для своего будущего бестселлера</h1>
+                <button class="read-btn" id="btn-upload">Загрузить текст</button>
+            </div>
+
+            <div id="layoutCarousel" class="carousel slide" data-bs-ride="false">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="d-flex justify-content-center gap-4 p-3">
+                            <div class="layout-card" onclick="updateInfo('Классик', 'images/layout-classic-main.jpg', 'А5 (148х210 мм)', 'Times New Roman, 12 кегль', 'Офсетная, 80 г/м²', 'Мягкий, клеевой (КБС)', 'Мелованный картон 250 г/м², матовая ламинация', '4+4 (полноцвет)', 'Каптал, ляссе')"> 
+                                <div class="card-image"><img src="images/layout-classic-1.jpg" alt="Макет"></div>
+                                <div class="card-title">Классик</div>
+                            </div>
+                            <div class="layout-card" onclick="updateInfo('Романтик', 'images/layout-romantic-main.jpg', 'А5 (148х210 мм)', 'Georgia, 11 кегль', 'Кремовая, 70 г/м²', 'Твердый переплет', 'Дизайнерская бумага', '1+1 (ч/б)', 'Ляссе')">
+                                <div class="card-image"><img src="images/layout-classic-2.jpg" alt="Макет"></div>
+                                <div class="card-title">Романтик</div>
+                            </div>
+                            <div class="layout-card" onclick="updateInfo('Британ', 'images/layout-british-main.jpg', '140x210 мм', 'Baskerville, 12 кегль', 'Munken, 90 г/м²', 'Интегральный', 'Тканевая фактура', '4+0 (цветная)', 'Каптал')">
+                                <div class="card-image"><img src="images/layout-classic-3.jpg" alt="Макет"></div>
+                                <div class="card-title">Британ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="d-flex justify-content-center gap-4 p-3">
+                            <div class="layout-card" onclick="updateInfo('Модерн', 'images/layout-modern-main.jpg', '210x210 мм', 'Helvetica, 10 кегль', 'Глянцевая, 115 г/м²', 'На болтах', 'Пластик', '4+4 (фото)', 'УФ-лак')"> 
+                                <div class="card-image"><img src="images/layout-classic-1.jpg" alt="Макет"></div>
+                                <div class="card-title">Модерн</div>
+                            </div>
+                            <div class="layout-card" onclick="updateInfo('Авангард', 'images/layout-avant-main.jpg', 'А4', 'Impact, 14 кегль', 'Мелованная', 'Пружина', 'Картон, фольга', '5+5 (пантон)', 'Вырубка')">
+                                <div class="card-image"><img src="images/layout-classic-2.jpg" alt="Макет"></div>
+                                <div class="card-title">Авангард</div>
+                            </div>
+                            <div class="layout-card" onclick="updateInfo('Мини', 'images/layout-mini-main.jpg', 'А6', 'Arial, 9 кегль', 'Тонкая офсетная', 'Нить', 'Крафт', '1+0', 'Скругление')">
+                                <div class="card-image"><img src="images/layout-classic-3.jpg" alt="Макет"></div>
+                                <div class="card-title">Мини</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-control-prev" type="button" data-bs-target="#layoutCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#layoutCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="layout-properties">
+        <div class="container">
+            <h2>Свойства макета</h2>
+            <div class="properties-content">
+                <div class="main-card">
+                    <div class="card-image"><img src="images/layout-classic-main.jpg" alt="Макет" id="main-prop-img"></div>
+                    <div class="card-title" id="main-prop-title">Классик</div>
+                </div>
+                <div class="details-list">
+                    <h3 id="prop-h3">Классик</h3>
+                    <p><strong>Формат:</strong> <span id="p-format">А5 (148х210 мм)</span></p>
+                    <p><strong>Гарнитура:</strong> <span id="p-font">Times New Roman, 12 кегль</span></p>
+                    <p><strong>Бумага:</strong> <span id="p-paper">Офсетная, 80 г/м²</span></p>
+                    <p><strong>Переплет:</strong> <span id="p-binding">Мягкий, клеевой (КБС)</span></p>
+                    <p><strong>Обложка:</strong> <span id="p-cover">Мелованный картон 250 г/м², матовая ламинация</span></p>
+                    <p><strong>Цветность:</strong> <span id="p-color">4+4 (полноцвет)</span></p>
+                    <p><strong>Тип отделки:</strong> <span id="p-finish">Каптал, ляссе</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="order-form-section">
+        <div class="container">
+            <h2>Оформить заказ</h2>
+            <div class="order-form-box">
+                <div class="book-illustration">
+                    <img src="images/book-illustration.jpg" alt="Книга">
+                </div>
+                <form class="order-form" id="main-order-form">
+                    <label style="grid-area: label1;">Ваше Имя</label>
+                    <input type="text" style="grid-area: input1;" required>
+
+                    <label style="grid-area: label2;">Название</label>
+                    <input type="text" style="grid-area: input2;" required>
+
+                    <label style="grid-area: label3;">№ Карты</label>
+                    <input type="text" style="grid-area: input3;" required>
+
+                    <button type="submit" class="read-btn">Оформить заказ</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-left">
+            <div class="footer-logo">Lassee</div>
+            <div class="footer-copy">Все права защищены</div>
+        </div>
+        <div class="footer-center">
+            <nav class="footer-nav">
+                <a href="#" class="js-unavailable">О нас</a>
+                <a href="#" class="js-unavailable">Отзывы</a>
+                <a href="#" class="js-unavailable">Контакты</a>
+            </nav>
+        </div>
+        <div class="footer-socials">
+            <div class="social telegram"></div>
+            <div class="social instagram"></div>
+        </div>
+    </div>
+</footer>
+
+<div class="custom-popup" id="popup">
+    <div class="popup-content">
+        <span class="popup-close" id="popup-close">&times;</span>
+        <h2 id="popup-title">&nbsp;</h2> 
+        <p id="popup-message" style="margin-top: 15px; font-size: 18px;"></p>
+        <button class="read-btn" id="popup-btn" style="margin-top: 20px; width: 100%;">Ок</button>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    function updateInfo(title, img, format, font, paper, binding, cover, color, finish) {
+        document.getElementById('main-prop-img').src = img;
+        document.getElementById('main-prop-title').innerText = title;
+        document.getElementById('prop-h3').innerText = title;
+        document.getElementById('p-format').innerText = format;
+        document.getElementById('p-font').innerText = font;
+        document.getElementById('p-paper').innerText = paper;
+        document.getElementById('p-binding').innerText = binding;
+        document.getElementById('p-cover').innerText = cover;
+        document.getElementById('p-color').innerText = color;
+        document.getElementById('p-finish').innerText = finish;
+    }
+
+    const popup = document.getElementById('popup');
+    const pTitle = document.getElementById('popup-title');
+    const pMsg = document.getElementById('popup-message');
+    const closeBtn = document.getElementById('popup-close');
+    const okBtn = document.getElementById('popup-btn');
+
+    function showPopup(title, msg) {
+        pTitle.innerText = title;
+        pMsg.innerText = msg;
+        popup.classList.add('popup-active');
+    }
+
+    function closePopup() {
+        popup.classList.remove('popup-active');
+    }
+
+    document.querySelectorAll('.js-unavailable').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            showPopup("Упс!", "Эта страница временно недоступна.");
+        });
+    });
+
+    document.getElementById('btn-upload').addEventListener('click', () => {
+        showPopup("Загрузка текста", "Пожалуйста, выберите файл .doc или .pdf на вашем устройстве.");
+    });
+
+    document.getElementById('main-order-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        showPopup("Заказ принят!", "Ваш заказ успешно оформлен.");
+    });
+
+    closeBtn.onclick = closePopup;
+    okBtn.onclick = closePopup;
+    window.onclick = (e) => { if(e.target == popup) closePopup(); };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Отзывы - Lassee</title>
+  <link rel="stylesheet" href="styles/reviews.css">
+  <style>
+    .custom-popup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(43, 28, 22, 0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+    }
+    .popup-content {
+      background: #f5eae3;
+      padding: 40px;
+      border-radius: 25px;
+      max-width: 450px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      color: #2b1c16;
+    }
+    .popup-close {
+      position: absolute;
+      top: 15px; right: 20px;
+      font-size: 30px;
+      cursor: pointer;
+    }
+    .popup-active { display: flex; }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" style="text-decoration:none;"><div class="logo">Lassee</div></a>
+      <nav class="nav">
+        <a href="order.html">заказы</a>
+        <a href="#" class="js-reg-trigger">контакты</a>
+        <a href="#" class="js-reg-trigger">этапы</a>
+      </nav>
+      <button class="account-btn js-reg-trigger">Аккаунт</button>
+    </div>
+  </header>
+
+  <section class="reviews-grid-section">
+    <div class="reviews-grid">
+
+      <div class="review-card">
+        <div class="photo-wrap"><img src="images/rev1.jpg" alt="Фото автора Петр Алексеевич"></div>
+        <div class="info">
+          <h3>Морковин Петр Алексеевич</h3>
+          <div class="stars">
+            <img src="images/star-filled.svg" alt="★">
+            <img src="images/star-filled.svg" alt="★">
+            <img src="images/star-filled.svg" alt="★">
+            <img src="images/star-filled.svg" alt="★">
+            <img src="images/star-filled.svg" alt="★" class="half">
+          </div>
+          <div class="stats"><span>500 копий</span><span>236 стр.</span></div>
+          <button class="read-btn js-reg-trigger">Читать весь отзыв</button>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="photo-wrap"><img src="images/rev2.jpg" alt="Фото автора Мария Алексеевна"></div>
+        <div class="info">
+          <h3>Ромаш Мария Алексеевна</h3>
+          <div class="stars">
+            <img src="images/star-filled.svg" alt="★">
+            <img src="images/star-filled.svg" alt="★">
+            <img src="images/star-filled.svg" alt="★">
+            <img src="images/star-filled.svg" alt="★">
+            <img src="images/star-filled.svg" alt="★" class="half">
+          </div>
+          <div class="stats"><span>400 копий</span><span>196 стр.</span></div>
+          <button class="read-btn js-reg-trigger">Читать весь отзыв</button>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="photo-wrap"><img src="images/rev3.jpg" alt="Фото автора Денис Сергеевич"></div>
+        <div class="info">
+          <h3>Татуйко Денис Сергеевич</h3>
+          <div class="stars">
+            <img src="images/star-filled.svg" alt="★">
+            <img src="images/star-filled.svg" alt="★">
+            <img src="images/star-filled.svg" alt="★">
+            <img src="images/star-filled.svg" alt="★">
+            <img src="images/star-filled.svg" alt="★" class="half">
+          </div>
+          <div class="stats"><span>500 копий</span><span>275 стр.</span></div>
+          <button class="read-btn js-reg-trigger">Читать весь отзыв</button>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="photo-wrap"><img src="images/rev4.jpg" alt="Фото автора Данил Сергеевич"></div>
+        <div class="info">
+          <h3>Гузенко Данил Сергеевич</h3>
+          <div class="stars">
+            <img src="images/star-filled.svg" alt="★">
+            <img src="images/star-filled.svg" alt="★">
+            <img src="images/star-filled.svg" alt="★">
+            <img src="images/star-filled.svg" alt="★">
+            <img src="images/star-filled.svg" alt="★" class="half">
+          </div>
+          <div class="stats"><span>500 копий</span><span>236 стр.</span></div>
+          <button class="read-btn js-reg-trigger">Читать весь отзыв</button>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="photo-wrap"><img src="images/rev5.jpg" alt="Фото автора Никита Сергеевич"></div>
+        <div class="info">
+          <h3>Шмаков Никита Сергеевич</h3>
+          <div class="stars">
+            <img src="images/star-filled.svg" alt="★">
+            <img src="images/star-filled.svg" alt="★">
+            <img src="images/star-filled.svg" alt="★">
+            <img src="images/star-filled.svg" alt="★">
+            <img src="images/star-filled.svg" alt="★" class="half">
+          </div>
+          <div class="stats"><span>80 копий</span><span>86 стр.</span></div>
+          <button class="read-btn js-reg-trigger">Читать весь отзыв</button>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="photo-wrap"><img src="images/rev6.jpg" alt="Фото автора Олег Петрович"></div>
+        <div class="info">
+          <h3>Сергеев Олег Петрович</h3>
+          <div class="stars">
+            <img src="images/star-filled.svg" alt="★">
+            <img src="images/star-filled.svg" alt="★">
+            <img src="images/star-filled.svg" alt="★">
+            <img src="images/star-filled.svg" alt="★">
+            <img src="images/star-filled.svg" alt="★" class="half">
+          </div>
+          <div class="stats"><span>150 копий</span><span>145 стр.</span></div>
+          <button class="read-btn js-reg-trigger">Читать весь отзыв</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div class="footer-logo">Lassee</div>
+      <div class="footer-copy">Все права защищены</div>
+    </div>
+
+    <div class="footer-center">
+      <nav class="footer-nav">
+        <a href="#" class="js-reg-trigger">О нас</a>
+        <a href="reviews.html">Отзывы</a>
+        <a href="#" class="js-reg-trigger">Контакты</a>
+      </nav>
+    </div>
+
+    <div class="footer-socials">
+      <div class="social telegram"></div>
+      <div class="social instagram"></div>
+    </div>
+  </div>
+</footer>
+
+<div class="custom-popup" id="reg-popup">
+  <div class="popup-content">
+    <span class="popup-close" id="close-popup">&times;</span>
+    <h2>Упс!</h2>
+    <p style="margin-top: 15px; font-size: 18px;">Для начала зарегистрируйтесь</p>
+    <button class="read-btn" id="ok-popup" style="margin-top: 20px; width: 100%; justify-self: center;">Ок</button>
+  </div>
+</div>
+
+<script>
+  const popup = document.getElementById('reg-popup');
+  const closeBtn = document.getElementById('close-popup');
+  const okBtn = document.getElementById('ok-popup');
+
+  function showRegMessage(e) {
+    e.preventDefault();
+    popup.classList.add('popup-active');
+  }
+
+  document.querySelectorAll('.js-reg-trigger').forEach(item => {
+    item.addEventListener('click', showRegMessage);
+  });
+
+  closeBtn.onclick = () => popup.classList.remove('popup-active');
+  okBtn.onclick = () => popup.classList.remove('popup-active');
+  window.onclick = (e) => { if(e.target == popup) popup.classList.remove('popup-active'); };
+</script>
+
+</body>
+</html>

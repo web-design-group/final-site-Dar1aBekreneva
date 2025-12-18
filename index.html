@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lassee - Напечатай свою книгу</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" style="text-decoration: none;"><div class="logo">Lassee</div></a>
+      <nav class="nav">
+        <a href="order.html">заказы</a>
+        <a href="#" class="js-unavailable">контакты</a>
+        <a href="#" class="js-unavailable">этапы</a>
+      </nav>
+      <button class="account-btn js-unavailable">Аккаунт</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>Напечатай свою книгу</h1>
+        <p>Далеко-далеко за словесными горами в стране гласных и согласных живут
+          рыбные тексты. Вдали от всех живут они в буквенных домах на берегу.
+          Семантика большого языкового океана.</p>
+        <a href="order.html" class="btn">Заказать</a>
+      </div>
+      <div class="hero-img">
+        <img src="images/hero.jpg" alt="Печать книги">
+      </div>
+    </div>
+  </section>
+
+  <section class="benefits">
+    <h2>Наши преимущества</h2>
+    <div class="benefits-inner">
+      <div class="benefit-card">
+        <div class="benefit-img">
+          <img src="images/benefit1.jpg" alt="Консультации">
+        </div>
+        <h3>Консультации</h3>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-img">
+          <img src="images/benefit2.jpg" alt="Любые тиражи">
+        </div>
+        <h3>Любые тиражи</h3>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-img">
+          <img src="images/benefit3.jpg" alt="Быстрая доставка">
+        </div>
+        <h3>Быстрая доставка</h3>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews">
+    <h2>Отзывы наших писателей</h2>
+    <div class="review-inner">
+      <div class="review-photo">
+        <img src="images/review.jpg" alt="Автор книги">
+      </div>
+      <div class="review-text">
+        <h3>Морковин Петр Алексеевич</h3>
+        <p>Обращался в эту типографию для печати книги. Остался целиком доволен!
+          Качество печати бомбическое, цены на обновлённом уровне: печать точно
+          в срок, доставка бесплатная, хотя книги обещали привезти на один день
+           позже, о чём предупредили заранее.</p>
+        <a href="reviews.html" class="btn">Узнать больше</a>
+        <div class="review-stats">
+          <div>500 копий</div>
+          <div>236 страниц</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <a href="index.html" style="text-decoration: none; color: inherit;"><div class="footer-logo">Lassee</div></a>
+      <div class="footer-copy">Все права защищены</div>
+    </div>
+
+    <div class="footer-center">
+      <nav class="footer-nav">
+        <a href="index.html">О нас</a>
+        <a href="reviews.html">Отзывы</a>
+        <a href="#" class="js-unavailable">Контакты</a>
+      </nav>
+    </div>
+
+    <div class="footer-socials">
+      <div class="social telegram"></div>
+      <div class="social instagram"></div>
+    </div>
+  </div>
+</footer>
+
+<div class="custom-popup" id="popup">
+    <div class="popup-content">
+        <span class="popup-close" id="popup-close">&times;</span>
+        <h2 id="popup-title">Упс!</h2>
+        <p id="popup-message" style="margin-top: 15px; font-size: 18px;">Эта страница временно недоступна.</p>
+        <button class="btn" id="popup-btn" style="margin-top: 20px; width: 100%; padding: 12px 0;">Ок</button>
+    </div>
+</div>
+
+<script>
+    const popup = document.getElementById('popup');
+    const closeBtn = document.getElementById('popup-close');
+    const okBtn = document.getElementById('popup-btn');
+
+    function showPopup() {
+        popup.classList.add('popup-active');
+    }
+
+    function closePopup() {
+        popup.classList.remove('popup-active');
+    }
+
+    document.querySelectorAll('.js-unavailable').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            showPopup();
+        });
+    });
+
+    closeBtn.onclick = closePopup;
+    okBtn.onclick = closePopup;
+    window.onclick = (e) => { if(e.target == popup) closePopup(); };
+</script>
+
+</body>
+</html>
